@@ -24,13 +24,8 @@ module.exports = {
 
     async execute(interaction) {
         const username = interaction.options.getString("username");
-
-        console.log(interaction.options.getUser("user"));
-        console.log(interaction.user);
         // Vérifier les permissions de l'utilisateur
         if (interaction.options.getUser("user")) {
-            console.log(interaction.options.getUser("user"));
-            console.log(interaction.user);
             if (!(interaction.options.getUser("user") === interaction.user)) {
                 if (
                     !interaction.member.permissions.has(

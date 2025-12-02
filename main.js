@@ -7,7 +7,7 @@ const { connectDB } = require("./loader/db");
 const checkForScores = require("./loader/checkForScores");
 connectDB();
 
-var actualDay = 51;
+var actualDay = 53;
 
 bot.commands = new Discord.Collection();
 bot.actualDay = actualDay;
