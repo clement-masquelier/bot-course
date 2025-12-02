@@ -87,7 +87,7 @@ module.exports = {
                 classementEmbed.addFields({
                     name: `#${scores[i].place} - ${
                         scores[i].user_db_id.instagram_account
-                    } - ${i - 1}eme`,
+                    } - ${i + 1}eme`,
                     value: `${scores[i].points} points <@${scores[i].user_db_id.discord_id}>`,
                     inline: false,
                 });

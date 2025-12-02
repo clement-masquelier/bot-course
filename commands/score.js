@@ -22,8 +22,6 @@ module.exports = {
                     return;
                 }
                 const results = JSON.parse(body).results;
-                console.log(body);
-                console.log(results);
                 let exactMatch = null;
                 for (let i = 0; i < results.length; i++) {
                     if (

@@ -19,10 +19,8 @@ module.exports = {
         const scores = await getScoresFromLastRace(
             interaction.options.getInteger("day")
         );
-        console.log(scores);
         // sort scores by place ascending
         scores.sort((a, b) => a.place - b.place);
-        console.log("Sorted scores:", scores);
 
         if (scores.length === 0) {
             await interaction.reply({
@@ -72,7 +70,7 @@ module.exports = {
                 classementEmbed.addFields({
                     name: `#${scores[i].place} - ${
                         scores[i].user_db_id.instagram_account
-                    } - ${i - 1}eme`,
+                    } - ${i + 1}eme`,
                     value: `${scores[i].points} points <@${scores[i].user_db_id.discord_id}>`,
                     inline: false,
                 });

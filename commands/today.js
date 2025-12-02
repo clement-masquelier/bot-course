@@ -13,10 +13,8 @@ module.exports = {
         const scores = await getScoresFromLastRace(
             interaction.client.actualDay
         );
-        console.log(scores);
         // sort scores by place ascending
         scores.sort((a, b) => a.place - b.place);
-        console.log("Sorted scores:", scores);
 
         // 2. Construction de l'Embed
         const classementEmbed = new EmbedBuilder()
