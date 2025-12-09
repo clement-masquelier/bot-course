@@ -122,6 +122,12 @@ const fetchAPI = (bot) => {
                 return;
             }
             const raceInfo = JSON.parse(body);
+            if (!raceInfo) {
+                return;
+            }
+            if (!raceInfo.races) {
+                return;
+            }
             if (
                 raceInfo.races[raceInfo.races.length - 1].day !== bot.actualDay
             ) {
