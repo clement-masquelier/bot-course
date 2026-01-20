@@ -45,7 +45,7 @@ const updateAndBroadcastScores = async (bot) => {
                 }
                 if (!exactMatch) {
                     console.log(
-                        `Score for ${user.instagram_account} not found for day ${bot.actualDay}.`
+                        `Score for ${user.instagram_account} not found for day ${bot.actualDay}.`,
                     );
                     return;
                 }
@@ -53,9 +53,9 @@ const updateAndBroadcastScores = async (bot) => {
                     user._id,
                     exactMatch.rank,
                     exactMatch.points,
-                    bot.actualDay
+                    bot.actualDay,
                 );
-            }
+            },
         );
     }
 
@@ -128,16 +128,17 @@ const fetchAPI = (bot) => {
             if (!raceInfo.races) {
                 return;
             }
+            raceInfo.races.sort((a, b) => a.day - b.day);
             if (
                 raceInfo.races[raceInfo.races.length - 1].day !== bot.actualDay
             ) {
                 bot.actualDay = raceInfo.races[raceInfo.races.length - 1].day;
                 console.log(
-                    `Nouvelle journée détectée ! Jour actuel mis à jour à ${bot.actualDay}`
+                    `Nouvelle journée détectée ! Jour actuel mis à jour à ${bot.actualDay}`,
                 );
                 updateAndBroadcastScores(bot);
             }
-        }
+        },
     );
     console.log("API Fetched.");
 };
@@ -149,7 +150,7 @@ const check = (bot) => {
             fetchAPI(bot);
         },
         600000,
-        bot
+        bot,
     );
 };
 
